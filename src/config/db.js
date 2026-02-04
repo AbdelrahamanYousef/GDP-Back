@@ -16,7 +16,7 @@ async function connectDB() {
     });
 
     mongoose.connection.on('disconnected', () => {
-      logger.warn('Database disconnected');
+      logger.info('Database disconnected');
     });
   } catch (error) {
     logger.error(`Database connection failed: ${error.message}`);
@@ -26,7 +26,6 @@ async function connectDB() {
 
 async function closeDB() {
   await mongoose.disconnect();
-  logger.info('DB disconnected ');
 }
 
 module.exports = { connectDB, closeDB };
