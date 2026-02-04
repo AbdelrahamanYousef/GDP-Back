@@ -11,6 +11,8 @@ const app = express();
 app.use(helmet());
 app.use(cors({ origin: config.corsOrigin || "*" }));
 app.use(express.json());
+
+
 if (config.env !== "production") app.use(morgan("dev"));
 
 // Basic routes
